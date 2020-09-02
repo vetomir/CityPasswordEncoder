@@ -44,7 +44,7 @@
 
 -->
     <h1 th:if="${welcomeMsg != null}" th:text="${welcomeMsg}"></h1>
-    <!--/*@thymesVar id="project" type="pl.gregorymartin.spacetravelagency.user.model.Role"*/-->
+    <!--/*@thymesVar id="project" type="pl.gregorymartin.passwordencoder.user.Role"*/-->
     <table style="width: 100%;" class="pure-table " th:each="role : ${allRoles}">
         <thead>
         <tr>
@@ -56,7 +56,7 @@
         </thead>
     </table>
     <h1>///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</h1>
-    <!--/*@thymesVar id="project" type="pl.gregorymartin.blogapp.user.User"*/-->
+    <!--/*@thymesVar id="project" type="pl.gregorymartin.passwordencoder.user.User"*/-->
     <table style="width: 100%;" class="pure-table " th:each="user : ${allUsers}">
         <thead>
         <tr>

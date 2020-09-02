@@ -16,7 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder getPasswordEncoder(){
-        return new BCryptPasswordEncoder();
+
+        return new CityPasswordEncoder();
+        //return new BCryptPasswordEncoder();
     }
 
     private UserDetailsService userDetailsService;
@@ -43,13 +45,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers(HttpMethod.DELETE,"/user").hasAuthority("ROLE_ADMIN")
-                .antMatchers(HttpMethod.POST,"/user").authenticated()
-                .antMatchers("/user/role").authenticated()
-                .antMatchers(HttpMethod.PATCH,"/user").authenticated()
                 .antMatchers("/all").authenticated()
-                .antMatchers(HttpMethod.GET,"/user").permitAll()
-                .antMatchers(HttpMethod.GET,"/").permitAll()
                 .and()
                 .formLogin().defaultSuccessUrl("/all")
                 .and()

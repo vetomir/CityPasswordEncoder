@@ -1,7 +1,5 @@
 package pl.gregorymartin.passwordencoder;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +11,6 @@ import pl.gregorymartin.passwordencoder.user.UserRepository;
 @Service
 @Primary
 public class UserDetailsServiceImpl implements UserDetailsService {
-    Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
     private UserRepository repo;
 

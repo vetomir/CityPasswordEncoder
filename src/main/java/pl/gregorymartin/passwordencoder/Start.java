@@ -26,11 +26,11 @@ public class Start {
         //TEST USER
 
         User appUser = new User("Administrator", "admin", "admin123","vetomir@gmail.com");
-        User appUser1 = new User("Administrator1", "admin1", "admin123","vetomir@gmail.com");
-        User appUser2 = new User("Administrator2", "admin2", "admin123","vetomir@gmail.com");
+        User appUser1 = new User("Administrator1", "admin1", "retdhfjg","vetomir@gmail.com");
+        User appUser2 = new User("Administrator2", "admin2", "bgftreru","vetomir@gmail.com");
         appUser.setEnabled(true);
         service.addUser(appUser, "ADMIN");
-        service.addUser(appUser1, "USERsaf");
+        service.addUser(appUser1, " :| ");
         service.addUser(appUser2, "mod");
 
     }
