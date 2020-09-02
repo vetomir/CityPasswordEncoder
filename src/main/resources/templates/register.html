@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <title>Register Page</title>
+</head>
+<body>
+<h1>Register Page</h1>
+<!--/*@thymesVar id="project" type="pl.gregorymartin.spacetravelagency.user.model.projection.UserWriteModel"*/-->
+<form  class="  pure-form pure-form-aligned" method="post" th:action="@{/register}" th:object="${userWriteModel}">
+    <div class="pure-control-group" >
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field ="*{name}" type="text"  placeholder="Name" />
+        </label>
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field ="*{username}" type="text"  placeholder="Username" />
+        </label>
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field="*{password}" type="password"  placeholder="Password"  />
+        </label>
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field="*{password2}" type="password"  placeholder="Repeat Password"  />
+        </label>
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field ="*{email}" type="email"  placeholder="Email"  />
+        </label>
+        <label style="margin: 10px;">
+            <select th:field="*{role}">
+                <option  th:each="c : ${allRoles}"
+                         th:value="${c.name}"
+                         th:text="${c.name}">
+                </option>
+            </select>
+        </label>
+    </div>
+    <button style="margin: 10px auto;" type="submit" class="button-success pure-button">Register</button>
+</form>
+
+
+</body>
+</html>

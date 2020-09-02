@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <title>Register Page</title>
+</head>
+<body sec:authorize="hasRole('ROLE_USER')">
+<h1>Edit Page</h1>
+<!--/*@thymesVar id="project" type="pl.gregorymartin.spacetravelagency.user.model.User"*/-->
+<form  class="  pure-form pure-form-aligned" method="post" th:action="@{/edit}" th:object="${userById}">
+    <div class="pure-control-group" >
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field ="*{name}" type="text"  th:placeholder="*{name}" />
+        </label>
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field ="*{username}" type="text"  th:placeholder="*{username}" />
+        </label>
+        <label style="margin: 10px auto; height: 36px;">
+            <input  style=" height: 36px;" th:field ="*{email}" type="email"  th:placeholder="*{email}" />
+        </label>
+        <!--<label style="margin: 10px;">
+            <select th:field="*{roles}">
+                <option  th:each="c : ${allRoles}"
+                         th:value="${c}"
+                         th:text="${c.name}">
+                </option>
+            </select>
+        </label>-->
+    </div>
+    <button style="margin: 10px auto;" type="submit" class="button-success pure-button">EDIT</button>
+    <button style="margin: 10px auto;" type="submit" class="button-success pure-button">CHANGE PASSWORD</button>
+    <button style="margin: 10px auto;" type="submit" class="button-success pure-button">REMOVE</button>
+</form>
+
+
+</body>
+</html>

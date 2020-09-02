@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Users</title>
+</head>
+<body >
+<main>
+<!--
+    <div style="width: 700px; margin: 0 auto;">
+        <form  class=" formular pure-form pure-form-aligned" method="post" th:action="@{/}" th:object="${allUsers}">
+            <div class="pure-control-group" >
+                <label style="margin: 10px auto; height: 36px;">
+                    <input  style=" height: 36px;" th:field ="*{title}" type="text"  placeholder="Title" th:errorclass="error" />
+                </label>
+                <label style="margin: 10px;">
+                    <select th:field="*{category}">
+                        <option  th:each="c : ${T(pl.gregorymartin.as82.model.Category).values()}"
+                                 th:value="${c.name()}"
+                                 th:text="${c}">
+                        </option>
+                    </select>
+                </label>
+                <label style="margin: 10px; height: 36px;">
+                    <input style=" height: 36px; " type="datetime-local" th:value="*{deadline}" th:field="*{deadline}" th:errorclass="error"/>
+                </label>
+            </div>
+            <div class="pure-control-group">
+                <label style="margin: 10px auto;">
+                    <textarea style=" width: 650px; height: 200px;" class="pure-input-1-2" th:field ="*{description}" placeholder="description" th:errorclass="error"></textarea>
+                </label>
+            </div>
+            <div style="margin: 10px auto;" class="pure-control-group">
+
+
+            </div>
+            <button style="margin: 10px auto;" type="submit" class="button-success pure-button">Add New Note</button>
+
+        </form>
+
+
+-->
+    <h1 th:if="${welcomeMsg != null}" th:text="${welcomeMsg}"></h1>
+    <!--/*@thymesVar id="project" type="pl.gregorymartin.spacetravelagency.user.model.Role"*/-->
+    <table style="width: 100%;" class="pure-table " th:each="role : ${allRoles}">
+        <thead>
+        <tr>
+            <div class="textField">
+                <dt class="title" th:text="${role.name}"></dt>
+                <br>
+            </div>
+        </tr>
+        </thead>
+    </table>
+    <h1>///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</h1>
+    <!--/*@thymesVar id="project" type="pl.gregorymartin.blogapp.user.User"*/-->
+    <table style="width: 100%;" class="pure-table " th:each="user : ${allUsers}">
+        <thead>
+        <tr>
+            <div class="textField">
+                <dt class="title" th:text="${user.id}"></dt>
+                <dt class="title" th:text="${user.name}"></dt>
+                <dt th:text="${user.username}"></dt>
+                <dt th:text="${user.email}"></dt>
+                <dt th:text="${user.count}"></dt>
+                <table style="width: 100%;" class="pure-table " th:each="role : ${user.authorities}">
+                    <tr>
+                        <div class="textField">
+                            <dt class="title" th:text="${role.authority}"></dt>
+                        </div>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <br>
+            </div>
+        </tr>
+        </thead>
+    </table>
+    <!--</div>-->
+
+</main>
+</body>
+</html>
